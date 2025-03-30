@@ -177,7 +177,7 @@ class LinkedList:
             polynomial = polynomial.next
         return poly
 
-def main():
+#def main():
     # read data from stdin (terminal/file) using input() and create polynomial p
 
     # read data from stdin (terminal/file) using input() and create polynomial q
@@ -187,5 +187,5 @@ def main():
     # get product of p and q as a new linked list and print product
         
 
-if __name__ == "__main__":
-    main()
+#if __name__ == "__main__":
+  #  main()
