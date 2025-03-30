@@ -178,33 +178,25 @@ class LinkedList:
         return poly
 
 def main():
-    # read data from stdin (terminal/file) using input() and create polynomial p
-
-    # read data from stdin (terminal/file) using input() and create polynomial q
-
-    # get sum of p and q as a new linked list and print sum
-
-    # get product of p and q as a new linked list and print product
-
     #polynomial p
     p = LinkedList()
-    numbers = int(input().strip())
+    numbers = int(input())
     for i in range(numbers):
-        nums = input().strip().split()
-        coeff = int(nums[0])
-        exp = int(nums[1])
-        p.insert_term(coeff, exp)
-    #polynomial q
-    q = LinkedList()
-    numbers2 = int(input().strip())
-    for j in range(numbers2):
-        nums2 = input().strip().split()
-        coeff = int(nums2[0])
-        exp = int(nums2[1])
-        q.insert_term(coeff, exp)
+        coeff, exp = input().split()
+        p.insert_term(int(coeff), int(exp))
     
-    print(p.add(q))  # Sum
-    print(p.mult(q)) 
+    nextline = input()
+    
+    # Read polynomial q
+    q = LinkedList()
+    numbers2 = int(input())
+    for j in range(numbers2):
+        coeff, exp = input().split()
+        q.insert_term(int(coeff), int(exp))
+    
+    # Calculate and print results
+    print(p.add(q))
+    print(p.mult(q))
         
 if __name__ == "__main__":
     main()
