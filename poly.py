@@ -110,11 +110,13 @@ class LinkedList:
     # If a term with that exponent already exists, add the coefficients together.
     # You must keep the terms in descending order by exponent.
     def insert_term(self, coeff, exp):
+        #make sure coeff isnt 0 and exponenets are in descending order
         if coeff == 0:
             return
         if self.head is None or exp > self.head.exp:
             self.head = Node(coeff, exp, self.head)
             return
+            #declare previous and current term variables to use for checking
         previous_term = None
         current_term = self.head
         while current_term is not None and current_term.exp > exp:
@@ -136,8 +138,10 @@ class LinkedList:
                 previous_term.next = add_node
     # Add a polynomial p to the polynomial and return the resulting polynomial as a new linked list.
     def add(self, p):
+        #create linked list to add to       
         result = LinkedList()
         poly1 = self.head
+        #make sure poly1 isnt empty and use insert term func
         while poly1:
             result.insert_term(poly1.coeff, poly1.exp)
             poly1 = poly1.next
@@ -150,11 +154,14 @@ class LinkedList:
 
     # Multiply a polynomial p with the polynomial and return the product as a new linked list.
     def mult(self, p):
+        #create linked list to add to
         result = LinkedList()
         poly1 = self.head
+        #make sure they arent empty
         while poly1:
             poly2 = p.head
             while poly2:
+                #multiply coeffs tgt and add exps
                 coefficient = poly1.coeff * poly2.coeff
                 exponent = poly1.exp + poly2.exp
                 result.insert_term(coefficient, exponent)
@@ -164,6 +171,7 @@ class LinkedList:
 
     # Return a string representation of the polynomial.
     def __str__(self):
+        #make sure polynomial isnt empty
         polynomial = self.head
         if polynomial is None:
             return ""
@@ -174,9 +182,15 @@ class LinkedList:
                     poly += " + "
                 poly += f"({polynomial.coeff}, {polynomial.exp})"
             polynomial = polynomial.next
-        return poly
-        
+        return poly     
 def main():
+    # read data from stdin (terminal/file) using input() and create polynomial p
+
+    # read data from stdin (terminal/file) using input() and create polynomial q
+
+    # get sum of p and q as a new linked list and print sum
+
+    # get product of p and q as a new linked list and print product
     p = LinkedList()
     numbers = int(input())
     for i in range(numbers):
@@ -191,6 +205,5 @@ def main():
     #print results
     print(p.add(q))
     print(p.mult(q))
-        
 if __name__ == "__main__":
     main()
