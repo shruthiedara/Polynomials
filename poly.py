@@ -111,7 +111,7 @@ class LinkedList:
     # You must keep the terms in descending order by exponent.
     def insert_term(self, coeff, exp):
         if coeff == 0:
-            return 
+            return
         if self.head is None or exp > self.head.exp:
             self.head = Node(coeff, exp, self.head)
             return
@@ -134,7 +134,6 @@ class LinkedList:
                 self.head = add_node
             else:
                 previous_term.next = add_node
-                
     # Add a polynomial p to the polynomial and return the resulting polynomial as a new linked list.
     def add(self, p):
         result = LinkedList()
@@ -176,25 +175,20 @@ class LinkedList:
                 poly += f"({polynomial.coeff}, {polynomial.exp})"
             polynomial = polynomial.next
         return poly
-
+        
 def main():
-    #polynomial p
     p = LinkedList()
     numbers = int(input())
     for i in range(numbers):
         coeff, exp = input().split()
         p.insert_term(int(coeff), int(exp))
-    
-    nextline = input()
-    
-    # Read polynomial q
+    input()
     q = LinkedList()
     numbers2 = int(input())
     for j in range(numbers2):
         coeff, exp = input().split()
         q.insert_term(int(coeff), int(exp))
-    
-    # Calculate and print results
+    #print results
     print(p.add(q))
     print(p.mult(q))
         
