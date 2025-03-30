@@ -111,12 +111,10 @@ class LinkedList:
     # You must keep the terms in descending order by exponent.
     def insert_term(self, coeff, exp):
         if coeff == 0:
-            return
-        
+            return 
         if self.head is None or exp > self.head.exp:
             self.head = Node(coeff, exp, self.head)
             return
-        
         previous_term = None
         current_term = self.head
         while current_term is not None and current_term.exp > exp:
@@ -136,9 +134,7 @@ class LinkedList:
                 self.head = add_node
             else:
                 previous_term.next = add_node
-        
-        
-
+                
     # Add a polynomial p to the polynomial and return the resulting polynomial as a new linked list.
     def add(self, p):
         result = LinkedList()
@@ -175,14 +171,13 @@ class LinkedList:
         poly = ""
         while polynomial:
             if polynomial.coeff != 0:
-                current = f"({polynomial.coeff}, {polynomial.exp})"
-                poly += (current)
+                if poly:
+                    poly += " + "
+                poly += f"({polynomial.coeff}, {polynomial.exp})"
             polynomial = polynomial.next
         return poly
 
-
-
-#def main():
+def main():
     # read data from stdin (terminal/file) using input() and create polynomial p
 
     # read data from stdin (terminal/file) using input() and create polynomial q
@@ -190,12 +185,7 @@ class LinkedList:
     # get sum of p and q as a new linked list and print sum
 
     # get product of p and q as a new linked list and print product
-   # p = LinkedList()
-  #  print("Enter terms for polynomial p, enter end when done")
-  #  while True:
         
 
-
-
-#if __name__ == "__main__":
-   # main()
+if __name__ == "__main__":
+    main()
